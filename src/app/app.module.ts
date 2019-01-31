@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
+import {APP_BASE_HREF} from '@angular/common';
 
 /*COMPONENTS*/
 import { AppComponent } from './app.component';
@@ -36,7 +37,8 @@ import { PruebaComponent } from './components/prueba/prueba.component';
     UserService,
     RolService,
     SectorService,
-    PositionService
+    PositionService,
+    {provide: APP_BASE_HREF, useValue : '' }
   ],
   bootstrap: [AppComponent]
 })
