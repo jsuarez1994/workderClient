@@ -1,5 +1,6 @@
 /*MODULES*/
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -9,6 +10,7 @@ import {APP_BASE_HREF} from '@angular/common';
 
 /*COMPONENTS*/
 import { AppComponent } from './app.component';
+import { HomeComponent } from './components/home/home.component';
 
 /*SERVICES*/
 import { CompanyService } from './providers/company.service';
@@ -17,15 +19,15 @@ import { UserService } from './providers/user.service';
 import { RolService } from './providers/rol.service';
 import { SectorService } from './providers/sector.service';
 import { PositionService } from './providers/position.service';
-import { PruebaComponent } from './components/prueba/prueba.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PruebaComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,

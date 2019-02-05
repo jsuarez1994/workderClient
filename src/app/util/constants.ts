@@ -1,8 +1,10 @@
 export class Constants {
 
     //GLOBAL
-    public static LOCAL_API:string          =   "localhost:8080/workder_api/";
+    public static LOCAL_API:string          =   "http://localhost:8080/workder_api/";
 
+
+    /* ----- UTIL ----- */
     public static STRING_EMPTY:string       =   "";
 
     /* ----- MODELS ----- */
@@ -42,6 +44,8 @@ export class Constants {
     //SERVICES
     public static GET_ALL_USERS:string       =   "users";
     public static GET_USER:string            =   "user/";
+
+    public static USER_LOGIN:string        =   "login";   
 
     //-----------------ORDER-----------------
 
