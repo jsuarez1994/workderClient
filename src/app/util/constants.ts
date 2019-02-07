@@ -6,6 +6,7 @@ export class Constants {
 
     /* ----- UTIL ----- */
     public static STRING_EMPTY:string       =   "";
+    public static SPLIT_URL:string          =   "/";
 
     /* ----- MODELS ----- */
 
@@ -54,6 +55,9 @@ export class Constants {
     //SERVICES
     public static GET_ALL_ORDERS:string       =   "orders";
     public static GET_ORDER:string            =   "order/";
+
+    public static ORDER_COMPLETE:string       =   "complete";
+    public static ORDER_INCOMPLETE:string       =   "incomplete";
 
     //-----------------COMPANY-----------------
 
