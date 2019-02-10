@@ -20,7 +20,27 @@ export class UserService {
 
   /*-----------METHODS-----------*/
   login(user:User):Observable<any>{
-    this.url = Constants.LOCAL_API + Constants.GET_USER + Constants.USER_LOGIN;
+    this.url = Constants.URL_API + Constants.GET_USER + Constants.USER_LOGIN;
     return this._http.post(this.url, user, {headers:this.headers});
+  }
+
+  saveOrUpdate(user:User):Observable<any>{
+    this.url = Constants.URL_API + Constants.GET_USER;
+    return this._http.post(this.url, user, {headers:this.headers});
+  }
+
+  delete(id:number):Observable<any>{
+    this.url = Constants.URL_API + Constants.GET_USER + Constants.SPLIT_URL;
+    return this._http.delete(this.url + id)
+  }
+
+  getUsers():Observable<any>{
+    this.url = Constants.URL_API + Constants.GET_ALL_USERS;
+    return this._http.get(this.url);
+  }
+
+  getUser(id:number):Observable<any>{
+    this.url = Constants.URL_API + Constants.GET_USER + Constants.SPLIT_URL;
+    return this._http.get(this.url + id);
   }
 }
