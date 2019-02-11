@@ -1,0 +1,13 @@
+.container-fluid{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+#footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    background-image: linear-gradient(to bottom right, rgb(28, 28, 29), rgb(41, 41, 41));
+}

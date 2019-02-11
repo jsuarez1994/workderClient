@@ -1,14 +1,14 @@
 export class Constants {
 
-    //GLOBAL
+    /* -------------------- GLOBAL --------------------*/
     public static URL_API:string              =   "http://localhost:8080/workder_api/";
 
 
-    /* ----- UTIL ----- */
+    /* -------------------- UTIL -------------------- */
     public static STRING_EMPTY:string           =   "";
     public static SPLIT_URL:string              =   "/";
 
-    /* ----- MODELS ----- */
+    /* -------------------- MODELS -------------------- */
 
     //-----------------ROL-----------------
 
@@ -68,5 +68,12 @@ export class Constants {
     //SERVICES
     public static GET_ALL_COMPANYS:string       =   "companys";
     public static GET_COMPANY:string            =   "company";
+
+    /* -------------------- MSG -------------------- */
+    //ERROR
+    public static MSG_ERROR_TITLE_LOGIN             =   "Error al realizar login";
+    public static MSG_ERROR_DESCRIPTION_LOGIN       =   "Ha ocurrido un error. Revisa tus credenciales.";
+
+    public static MSG_SUCCESS_TITLE_LOGIN           =   "Datos correctos";
     
 }

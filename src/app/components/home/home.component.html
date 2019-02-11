@@ -1,0 +1,51 @@
+<!-- NAVBAR -->
+<nav class="navbar navbar-light bg-white text-center" id="navBrand">
+    <a class="navbar-brand" href="#">
+        <img src="../../../assets/images/brand.png" class="brand" alt="brand">
+    </a>
+</nav>
+
+<!-- CONTENT -->
+
+<div class="container-fluid text-center justify-middle" id="separator">
+    <br>
+    <br>
+    <br>
+</div>
+<div class="container-fluid text-center">
+    <div class="row">
+        <!-- LOGIN -->
+        <div class="col-sm-12 col-md-6 col-lg-6 border-right">
+            <h1>Login</h1>
+            <div class="form-group text-justify">
+
+                <span class="ui-float-label">
+                    <input id="float-input" placeholder="email@mail.com" class="form-control inputs" type="email" pInputText [(ngModel)]="user.email"> 
+                </span>
+
+                <span class="ui-float-label">
+                    <input id="float-input" placeholder="********" class="form-control inputs" type="password" pInputText [(ngModel)]="user.password"> 
+                </span>
+
+            </div>
+            <button type="button" class="btn btn-danger" (click)="ngLogin()">Login</button>
+        </div>
+
+        <!-- REGISTER -->
+        <div class="col-sm-12 col-md-6 col-lg-6 border-left">
+            <h1>Registro</h1>
+            <div class="form-group text-justify">
+
+                <span class="ui-float-label">
+                    <input id="float-input" placeholder="email@mail.com" class="form-control inputs" type="email" pInputText [(ngModel)]="user.email"> 
+                </span>
+
+                <span class="ui-float-label">
+                    <input id="float-input" placeholder="********" class="form-control inputs" type="password" pInputText [(ngModel)]="user.password"> 
+                </span>
+
+            </div>
+            <button type="button" class="btn btn-danger" (click)="ngRegister()">Register</button>
+        </div>
+    </div>
+</div>
