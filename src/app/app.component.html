@@ -1,14 +1,26 @@
-<div class="container-fluid">
+<div class="container-fluid content">
   <router-outlet></router-outlet>
 </div>
 
 <!-- FOOTER -->
-<div class="container-fluid text-center align-self-end" id="footer">
-    <br>
-    <br>
-    <div class="text-white display-4">
-        Workder App
+<div class="container-fluid text-center align-middle footer">
+    <div class="row">
+      
+      <!-- Workder -->
+      <div class="col">
+        <div class="text-white display-5 application">
+            Workder App
+        </div>
+      </div>
+
+
+      <!-- Information -->
+      <div class="col">
+          <ul class="list-group list-group-flush text-white">
+            <a routerLink="/"><li class="list-group-item"><i class="material-icons align-middle">home</i> Home</li></a>
+            <a routerLink="/about"><li class="list-group-item"><i class="material-icons  align-middle">help</i> About</li></a>
+          </ul>
+      </div>
+    
     </div>
-    <br>
-    <br>
 </div>

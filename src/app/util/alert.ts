@@ -2,6 +2,12 @@ import Swal from 'sweetalert2';
 
 export class Alert{
 
+    /**
+     * MSG: Message Error when login failed
+     * 
+     * @param title:string
+     * @param description:string
+    */
     static msgErrorLogin(title:string, description:string){
         Swal.fire({
             position: 'top-end',
@@ -12,6 +18,11 @@ export class Alert{
         })
     }
 
+    /**
+     * MSG: Message Success when login success
+     * 
+     * @param title:string
+    */
     static msgSuccessLogin(title:string) {
         Swal.fire({
             position: 'top-end',

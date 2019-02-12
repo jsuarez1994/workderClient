@@ -1,18 +1,17 @@
 <!-- NAVBAR -->
 <nav class="navbar navbar-light bg-white text-center" id="navBrand">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" routerLink="/">
         <img src="../../../assets/images/brand.png" class="brand" alt="brand">
     </a>
 </nav>
 
 <!-- CONTENT -->
 
-<div class="container-fluid text-center justify-middle" id="separator">
-    <br>
-    <br>
-    <br>
+<div class="container-fluid text-center justify-middle divider separator">
+    <br><br><br>
 </div>
-<div class="container-fluid text-center">
+
+<div class="container-fluid text-center dataUser">
     <div class="row">
         <!-- LOGIN -->
         <div class="col-sm-12 col-md-6 col-lg-6 border-right">
@@ -45,7 +44,13 @@
                 </span>
 
             </div>
-            <button type="button" class="btn btn-danger" (click)="ngRegister()">Register</button>
+            <button type="button" class="btn btn-success" (click)="ngRegister()">Register</button>
         </div>
     </div>
+</div>
+
+<hr>
+
+<div>
+    <img src="../../../assets/images/background_image.jpg" class="img-fluid rounded" alt="img">
 </div>

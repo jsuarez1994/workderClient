@@ -1,21 +1,17 @@
-.brand{
-    width: 15%;
+@media only screen and (min-width: 1030px) {
+    .brand{
+        width: 5%;
+    }
 }
 
-
-#footer{
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    color: white;
-    background-image: linear-gradient(to bottom right, rgb(28, 28, 29), rgb(41, 41, 41));
+@media only screen and (max-width: 1030px) {
+    .brand{
+        width: 8%;
+    }
 }
 
-#separator{
-    height: 15%;
-    background-image: linear-gradient(to bottom right, blue, rgb(89, 0, 255));
-    position: relative;
+.dataUser{
+    margin-top: 3%;
 }
 
 .inputs{

@@ -1,2 +1,47 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+
+
+/*TO FOOTER STAY IN BOTTOM*/
+html, body {
+      height: 100%;
+}
+
+*{
+      font-family: "Josefin Sans";
+}
+
+.btn{
+      font-size: 1.3em;
+      font-family: "Poppins";
+}
+
+a:hover{
+      text-decoration: none;
+}
+
+
+.btn-danger{
+      background-image: linear-gradient(to bottom right, rgba(255, 121, 11, 0.884), rgb(179, 102, 1));
+      border: none;
+}
+
+.btn-success{
+      background-image: linear-gradient(to bottom right, rgba(13, 0, 85, 0.884), rgb(7, 4, 179));
+      border: none;
+}
+
+
+.divider{
+      background-image: linear-gradient(to bottom left, rgba(230, 103, 0, 0.884), rgb(3, 0, 197));
+      height: 15%;
+      position: relative;
+      width: 100%;
+}
+
+h1{
+      font-family: "Anton";
+      font-size: 3.5em;
+      text-transform: uppercase;
+}
