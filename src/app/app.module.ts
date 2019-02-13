@@ -20,6 +20,8 @@ import { RolService } from './providers/rol.service';
 import { SectorService } from './providers/sector.service';
 import { PositionService } from './providers/position.service';
 
+/*PRIME*/
+import {InputTextModule} from 'primeng/inputtext';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +33,8 @@ import { PositionService } from './providers/position.service';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    InputTextModule
   ],
   providers: [
     CompanyService,

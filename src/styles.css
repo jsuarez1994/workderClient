@@ -32,16 +32,13 @@ a:hover{
       border: none;
 }
 
-
-.divider{
-      background-image: linear-gradient(to bottom left, rgba(230, 103, 0, 0.884), rgb(3, 0, 197));
-      height: 15%;
-      position: relative;
-      width: 100%;
-}
-
 h1{
       font-family: "Anton";
       font-size: 3.5em;
       text-transform: uppercase;
+}
+
+.form-control{
+      border:none;
+      border-bottom: 1px solid orange;
 }

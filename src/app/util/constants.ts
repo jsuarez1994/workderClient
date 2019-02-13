@@ -71,9 +71,19 @@ export class Constants {
 
     /* -------------------- MSG -------------------- */
     //ERROR
-    public static MSG_ERROR_TITLE_LOGIN             =   "Error al realizar login";
-    public static MSG_ERROR_DESCRIPTION_LOGIN       =   "Ha ocurrido un error. Revisa tus credenciales.";
+    public static MSG_ERROR_TITLE_LOGIN:string      =   "Error al realizar login";
+    public static MSG_ERROR_DESCRIPTION_LOGIN:string=   "Ha ocurrido un error. Revisa tus credenciales.";
 
-    public static MSG_SUCCESS_TITLE_LOGIN           =   "Datos correctos";
-    
+    public static MSG_SUCCESS_TITLE_LOGIN:string    =   "Datos correctos";
+
+    public static ALERT_EMAIL:string                =   "Introduce en el formato correcto el email";
+    public static ALERT_PASSWORD:string             =   "Introduzca bien el formato de la password";
+
+
+
+    /* -------------------- EXPRESSION REGULAR -------------------- */
+
+    public static EXP_EMAIL                         =   /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
+    public static EXP_PASSWORD                      =   /^[A-Z]{1}[a-z|A-Z|0-9]+/;
+
 }

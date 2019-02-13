@@ -1,20 +1,35 @@
-@media only screen and (min-width: 1030px) {
-    .brand{
-        width: 5%;
+@media only screen and (min-width: 1030px) {/*FULL VIEW*/
+    .img-brand{
+        width: 15%;
+    }
+    .inputs{
+        margin-left: 42%;
     }
 }
 
-@media only screen and (max-width: 1030px) {
-    .brand{
-        width: 8%;
+@media only screen and (max-width: 1030px) {/*MIDDLE VIEW*/
+    .img-brand{
+        width: 25%;
     }
+    .inputs{
+        margin-left: 38%;
+    }
+}
+
+.photoHome{
+    margin-bottom: 20%;
+    width: 80%;
 }
 
 .dataUser{
     margin-top: 3%;
 }
 
-.inputs{
-    margin-top: 5%;
-    width: 75%;
+.box{
+    padding: 3%;
+}
+
+.alertMsg{
+    font-weight: bold;
+    color: rgb(182, 0, 0);
 }

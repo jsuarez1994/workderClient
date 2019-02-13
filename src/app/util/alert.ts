@@ -1,4 +1,5 @@
 import Swal from 'sweetalert2';
+import { Constants } from '../util/constants';
 
 export class Alert{
 
@@ -8,12 +9,12 @@ export class Alert{
      * @param title:string
      * @param description:string
     */
-    static msgErrorLogin(title:string, description:string){
+    static msgErrorLogin(){
         Swal.fire({
             position: 'top-end',
             type: 'error',
-            title: title,
-            text: description,
+            title: Constants.MSG_ERROR_TITLE_LOGIN, 
+            text: Constants.MSG_ERROR_DESCRIPTION_LOGIN,
             showConfirmButton: true
         })
     }
@@ -23,11 +24,11 @@ export class Alert{
      * 
      * @param title:string
     */
-    static msgSuccessLogin(title:string) {
+    static msgSuccessLogin() {
         Swal.fire({
             position: 'top-end',
             type: 'success',
-            title: title,
+            title: Constants.MSG_SUCCESS_TITLE_LOGIN,
             showConfirmButton: true
         })
     }

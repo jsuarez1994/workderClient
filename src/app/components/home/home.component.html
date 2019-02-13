@@ -1,56 +1,35 @@
-<!-- NAVBAR -->
-<nav class="navbar navbar-light bg-white text-center" id="navBrand">
-    <a class="navbar-brand" routerLink="/">
-        <img src="../../../assets/images/brand.png" class="brand" alt="brand">
-    </a>
-</nav>
-
-<!-- CONTENT -->
-
-<div class="container-fluid text-center justify-middle divider separator">
-    <br><br><br>
-</div>
-
-<div class="container-fluid text-center dataUser">
-    <div class="row">
-        <!-- LOGIN -->
-        <div class="col-sm-12 col-md-6 col-lg-6 border-right">
-            <h1>Login</h1>
-            <div class="form-group text-justify">
-
-                <span class="ui-float-label">
-                    <input id="float-input" placeholder="email@mail.com" class="form-control inputs" type="email" pInputText [(ngModel)]="user.email"> 
-                </span>
-
-                <span class="ui-float-label">
-                    <input id="float-input" placeholder="********" class="form-control inputs" type="password" pInputText [(ngModel)]="user.password"> 
-                </span>
-
-            </div>
-            <button type="button" class="btn btn-danger" (click)="ngLogin()">Login</button>
-        </div>
-
-        <!-- REGISTER -->
-        <div class="col-sm-12 col-md-6 col-lg-6 border-left">
-            <h1>Registro</h1>
-            <div class="form-group text-justify">
-
-                <span class="ui-float-label">
-                    <input id="float-input" placeholder="email@mail.com" class="form-control inputs" type="email" pInputText [(ngModel)]="user.email"> 
-                </span>
-
-                <span class="ui-float-label">
-                    <input id="float-input" placeholder="********" class="form-control inputs" type="password" pInputText [(ngModel)]="user.password"> 
-                </span>
-
-            </div>
-            <button type="button" class="btn btn-success" (click)="ngRegister()">Register</button>
-        </div>
+<div class="text-center mt-5 box"> 
+    <div>
+        <img src="../../../assets/images/brand.png" class="img-brand" alt="brand">
     </div>
-</div>
 
-<hr>
+    <div class="login mt-5">
+        <h1>Login</h1>
+        <form #userLogin='ngForm' (ngSubmit)="ngLogin(userLogin)">
+            <div class="inputs">
+                <div class="ui-inputgroup mt-5">
+                    <span class="ui-float-label">
+                        <input  id="float-input" class="form-control" [(ngModel)]="user.email" 
+                                type="email" name="email" size="25" pInputText (change)="validEmail()"
+                                required> 
+                        <label for="float-input">Email</label>
+                        <small id="emailHelp" class="alertMsg">{{alertEmail}}</small>
+                    </span>
+                </div>
+                <div class="ui-inputgroup mt-4">
+                    <span class="ui-float-label">
+                        <input  id="float-input" class="form-control" [(ngModel)]="user.password" 
+                                type="password" name="password" size="25" pInputText (change)="validPassword()"
+                                required> 
+                        <label for="float-input">Password</label>
+                        <small id="emailHelp" class="alertMsg">{{alertPassword}}</small>
+                    </span>
+                </div>
+            </div>
 
-<div>
-    <img src="../../../assets/images/background_image.jpg" class="img-fluid rounded" alt="img">
-</div>
+            <button type="submit" class="btn btn-success mt-4 mr-5" [disabled]="!userLogin.form.valid">Login</button>
+            <button type="button" class="btn btn-danger mt-4 ml-5" (click)="ngClear()">Limpiar</button>
+        </form>
+    </div>
+
+</div>   
