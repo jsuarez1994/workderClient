@@ -40,7 +40,11 @@ export class HomeComponent implements OnInit {
             sessionStorage.setItem("user", userJson);
             Alert.msgSuccessLogin();
 
-            //this.router.navigate(['/'])
+            if(this.user.rol.id == Constants.ID_ROL_USER_BOSS){
+              //this.router.navigate(['/'])
+            } else if (this.user.rol.id == Constants.ID_ROL_USER_WORKER) {
+              //this.router.navigate(['/'])
+            }
           } else {
             Alert.msgErrorLogin()
           }

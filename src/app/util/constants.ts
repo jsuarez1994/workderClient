@@ -13,9 +13,9 @@ export class Constants {
     //-----------------ROL-----------------
 
     //ATRIBUTES
-    public static ID_ROL_ADMIN:number           =   0;
-    public static ID_ROL_USER_BOSS:number       =   1;
-    public static ID_ROL_USER_WORKER:number     =   2;
+    public static ID_ROL_ADMIN:number           =   1;
+    public static ID_ROL_USER_BOSS:number       =   2;
+    public static ID_ROL_USER_WORKER:number     =   3;
     
     //SERVICES
     public static GET_ALL_ROLS:string           =   "rols";
