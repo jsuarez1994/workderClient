@@ -9,6 +9,7 @@ export class User extends DateModel{
     password:string;
     name:string;
     surname:string;
+    activated:boolean;
     rol:Rol;
     position:Position;
     company:Company;

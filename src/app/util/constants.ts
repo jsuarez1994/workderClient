@@ -1,7 +1,11 @@
 export class Constants {
 
-    /* -------------------- GLOBAL --------------------*/
-    public static URL_API:string              =   "http://localhost:8080/workder_api/";
+    /* -------------------- URL --------------------*/
+    public static URL_API:string              =     "http://localhost:8080/workder_api/";
+    public static URL_WORKER_INDEX:string     =     "worker";
+    public static URL_MANAGER_INDEX:string    =     "manager";
+    public static URL_BOSS_INDEX:string       =     "boss";
+
 
 
     /* -------------------- UTIL -------------------- */
@@ -15,7 +19,8 @@ export class Constants {
     //ATRIBUTES
     public static ID_ROL_ADMIN:number           =   1;
     public static ID_ROL_USER_BOSS:number       =   2;
-    public static ID_ROL_USER_WORKER:number     =   3;
+    public static ID_ROL_USER_MANAGER:number    =   3;
+    public static ID_ROL_USER_WORKER:number     =   4;
     
     //SERVICES
     public static GET_ALL_ROLS:string           =   "rols";
@@ -73,11 +78,12 @@ export class Constants {
     //ERROR
     public static MSG_ERROR_TITLE_LOGIN:string      =   "Error al realizar login";
     public static MSG_ERROR_DESCRIPTION_LOGIN:string=   "Ha ocurrido un error. Revisa tus credenciales.";
-
-    public static MSG_SUCCESS_TITLE_LOGIN:string    =   "Datos correctos";
-
+    public static MSG_ERROR_USER_INACTIVATED        =   "Usuario desactivado, habla con su responsable para volver a activarlo";
     public static ALERT_EMAIL:string                =   "Introduce en el formato correcto el email";
     public static ALERT_PASSWORD:string             =   "Introduzca bien el formato de la password";
+
+    //SUCCESS
+    public static MSG_SUCCESS_TITLE_LOGIN:string    =   "Datos correctos";
 
 
 
@@ -85,5 +91,9 @@ export class Constants {
 
     public static EXP_EMAIL                         =   /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
     public static EXP_PASSWORD                      =   /^[A-Z]{1}[a-z|A-Z|0-9]+/;
+
+
+    /* -------------------- OBJECTS SESSION -------------------- */
+    public static USER_SESSION                      =   "userSession";
 
 }

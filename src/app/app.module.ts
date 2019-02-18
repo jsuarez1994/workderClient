@@ -11,6 +11,9 @@ import {APP_BASE_HREF} from '@angular/common';
 /*COMPONENTS*/
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
+import { WorkerComponent } from './components/worker/worker.component';
+import { ManagerComponent } from './components/manager/manager.component';
+import { BossComponent } from './components/boss/boss.component';
 
 /*SERVICES*/
 import { CompanyService } from './providers/company.service';
@@ -22,10 +25,15 @@ import { PositionService } from './providers/position.service';
 
 /*PRIME*/
 import {InputTextModule} from 'primeng/inputtext';
+
+
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    WorkerComponent,
+    ManagerComponent,
+    BossComponent
   ],
   imports: [
     BrowserModule,

@@ -3,6 +3,6 @@ import { Company } from './company';
 
 export class Sector extends NameDescriptionModel{
 
-    company:Company;
+    companys:Array<Company>;
 
 }

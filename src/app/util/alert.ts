@@ -5,9 +5,6 @@ export class Alert{
 
     /**
      * MSG: Message Error when login failed
-     * 
-     * @param title:string
-     * @param description:string
     */
     static msgErrorLogin(){
         Swal.fire({
@@ -21,8 +18,6 @@ export class Alert{
 
     /**
      * MSG: Message Success when login success
-     * 
-     * @param title:string
     */
     static msgSuccessLogin() {
         Swal.fire({
@@ -32,5 +27,17 @@ export class Alert{
             showConfirmButton: true
         })
     }
+
+    /**
+     * MSG: Message user inactivated when login success
+    */
+   static msgUserInactivated() {
+    Swal.fire({
+        position: 'top-end',
+        type: 'error',
+        title: Constants.MSG_ERROR_USER_INACTIVATED,
+        showConfirmButton: true
+    })
+}
 
 }

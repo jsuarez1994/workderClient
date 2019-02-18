@@ -3,6 +3,6 @@ import { User } from './user';
 
 export class Rol extends NameDescriptionModel{
 
-    user:User;
+    user:Array<User>;
 
 }

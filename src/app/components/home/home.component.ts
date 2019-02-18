@@ -20,7 +20,9 @@ export class HomeComponent implements OnInit {
   constructor( private userService:UserService, private router:Router ) { 
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    sessionStorage.clear();
+  }
 
   ngLogin(){
 
@@ -33,19 +35,27 @@ export class HomeComponent implements OnInit {
 
       this.userService.login(this.user).subscribe(
         user => {
-          if(user != null){
+          if(user != null){//IR RETURN DATA
+
             this.user = user;
             console.log(this.user);
-            let userJson:string = JSON.stringify(this.user);
-            sessionStorage.setItem("user", userJson);
-            Alert.msgSuccessLogin();
 
-            if(this.user.rol.id == Constants.ID_ROL_USER_BOSS){
-              //this.router.navigate(['/'])
-            } else if (this.user.rol.id == Constants.ID_ROL_USER_WORKER) {
-              //this.router.navigate(['/'])
+            if(this.user.activated == true){ //IF USER ACTIVATED
+              let userJson:string = JSON.stringify(this.user);
+              sessionStorage.setItem(Constants.USER_SESSION, userJson);
+              Alert.msgSuccessLogin();              
+              if(this.user.rol.id == Constants.ID_ROL_USER_BOSS){//REDIRECT TO BOSS INDEX
+                this.router.navigate([Constants.URL_BOSS_INDEX])
+              } else if ( this.user.rol.id == Constants.ID_ROL_USER_MANAGER ) {//REDIRECT TO MANAGER INDEX
+                this.router.navigate([Constants.URL_MANAGER_INDEX]);
+              } else if (this.user.rol.id == Constants.ID_ROL_USER_WORKER) {//REDIRECT TO WORKER INDEX
+                this.router.navigate([Constants.URL_WORKER_INDEX])
+              }
+            } else {//IF USER INACTIVATED
+              Alert.msgUserInactivated()
             }
-          } else {
+
+          } else {//NOT LOGIN
             Alert.msgErrorLogin()
           }
         }
