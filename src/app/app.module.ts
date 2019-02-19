@@ -14,6 +14,7 @@ import { HomeComponent } from './components/home/home.component';
 import { WorkerComponent } from './components/worker/worker.component';
 import { ManagerComponent } from './components/manager/manager.component';
 import { BossComponent } from './components/boss/boss.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 /*SERVICES*/
 import { CompanyService } from './providers/company.service';
@@ -33,7 +34,8 @@ import {InputTextModule} from 'primeng/inputtext';
     HomeComponent,
     WorkerComponent,
     ManagerComponent,
-    BossComponent
+    BossComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
