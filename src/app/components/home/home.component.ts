@@ -52,10 +52,12 @@ export class HomeComponent implements OnInit {
                 this.router.navigate([Constants.URL_WORKER_INDEX])
               }
             } else {//IF USER INACTIVATED
+              this.user.password = Constants.STRING_EMPTY;
               Alert.msgUserInactivated()
             }
 
           } else {//NOT LOGIN
+            this.user.password = Constants.STRING_EMPTY;
             Alert.msgErrorLogin()
           }
         }

@@ -12,6 +12,7 @@ export class Constants {
     public static STRING_EMPTY:string           =   "";
     public static SPLIT_URL:string              =   "/";
 
+    public static DEFAULT_IMAGE_PROFILE_NAVBAR  =   "../../assets/images/user.png";
     /* -------------------- MODELS -------------------- */
 
     //-----------------ROL-----------------

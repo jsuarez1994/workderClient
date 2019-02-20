@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Constants } from 'src/app/util/constants';
+import { Company } from 'src/app/models/company';
+import { User } from 'src/app/models/user';
+import { CompanyService } from 'src/app/providers/company.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +12,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  url_profile:string = Constants.DEFAULT_IMAGE_PROFILE_NAVBAR;
+  company:Company;
+  user:User;
+
+  constructor( private companyService:CompanyService, private router:Router) { 
+    this.company = new Company();
+    this.user = new User();
+  }
 
   ngOnInit() {
+    this.user = JSON.parse(sessionStorage.getItem(Constants.USER_SESSION));
+    this.company = this.user.company;
   }
 
 }
