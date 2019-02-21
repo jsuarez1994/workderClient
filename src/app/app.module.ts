@@ -26,6 +26,7 @@ import { PositionService } from './providers/position.service';
 
 /*PRIME*/
 import {InputTextModule} from 'primeng/inputtext';
+import {FullCalendarModule} from 'primeng/fullcalendar';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import {InputTextModule} from 'primeng/inputtext';
     FormsModule,
     HttpClientModule,
     RouterModule,
-    InputTextModule
+    InputTextModule,
+    FullCalendarModule
   ],
   providers: [
     CompanyService,

@@ -10,6 +10,7 @@ export class User extends DateModel{
     name:string;
     surname:string;
     activated:boolean;
+    pathPhoto:string;
     rol:Rol;
     position:Position;
     company:Company;

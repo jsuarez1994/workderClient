@@ -23,7 +23,15 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
     this.user = JSON.parse(sessionStorage.getItem(Constants.USER_SESSION));
+    if(this.user.pathPhoto != null){//If the user have photo, put photo
+      this.url_profile = this.user.pathPhoto;
+    }
     this.company = this.user.company;
+  }
+
+  toHome(){
+    sessionStorage.clear();
+    this.router.navigate(['']);
   }
 
 }
