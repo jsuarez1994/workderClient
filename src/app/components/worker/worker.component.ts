@@ -10,20 +10,17 @@ import { Order } from 'src/app/models/order';
 })
 export class WorkerComponent implements OnInit {
   
-  events: any[];
-  options:any;
   user:User;
   orders:Array<Order>;
+
+  events: any[];
   
   constructor() {
     this.user = new User();
   }
-
-  //TODO-Check calendar
+  
+  
   ngOnInit() {
-
-    // this.user = JSON.parse(sessionStorage.getItem(Constants.USER_SESSION));
-    // this.orders = this.user.listOrders; 
 
     this.events = [
       {
@@ -48,16 +45,7 @@ export class WorkerComponent implements OnInit {
           "start": "2019-02-11",
           "end": "2019-02-13"
       }
-    ];
-    this.options = {
-      defaultDate: '2017-02-01',
-      header: {
-          left: 'prev,next',
-          center: 'title',
-          right: 'month,agendaWeek,agendaDay'
-      },
-      editable: true
-    };
+  ];
   }
 
 }

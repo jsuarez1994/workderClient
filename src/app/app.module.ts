@@ -26,6 +26,7 @@ import { PositionService } from './providers/position.service';
 
 /*PRIME*/
 import {InputTextModule} from 'primeng/inputtext';
+import {CalendarModule} from 'primeng/calendar';
 import {FullCalendarModule} from 'primeng/fullcalendar';
 
 
@@ -46,6 +47,7 @@ import {FullCalendarModule} from 'primeng/fullcalendar';
     HttpClientModule,
     RouterModule,
     InputTextModule,
+    CalendarModule,
     FullCalendarModule
   ],
   providers: [
