@@ -14,6 +14,6 @@ export class User extends DateModel{
     rol:Rol;
     position:Position;
     company:Company;
-    listOrders:Array<Order>;
+    orders:Array<Order>;
 
 }
