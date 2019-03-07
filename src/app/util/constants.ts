@@ -11,6 +11,7 @@ export class Constants {
     /* -------------------- UTIL -------------------- */
     public static STRING_EMPTY:string           =   "";
     public static SPLIT_URL:string              =   "/";
+    public static SPLIT_DATE:string              =   "-";
 
     public static DEFAULT_IMAGE_PROFILE_NAVBAR  =   "../../assets/images/user.png";
     /* -------------------- MODELS -------------------- */

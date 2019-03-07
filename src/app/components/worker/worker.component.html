@@ -1,5 +1,43 @@
 <app-navbar></app-navbar>
-<h1>fasdfa</h1>
+<br><br>
+<div class="container-fluid mt-5">
 
+    <div class="row">
 
-<p-fullCalendar [events]="orders" [options]="options"></p-fullCalendar>
+        <div class="col-sm col-8">
+            <h1>Calendario</h1>
+            <p-fullCalendar [events]="events" [options]="options"></p-fullCalendar>
+        </div>
+
+        <div class="col-sm col-4">
+            <h1>Lista de ordenes</h1>
+            <p-dataView [value]="orders">
+                <ng-template let-order pTemplate="listItem">
+                    <div class="d-inline mt-2">
+                        <div class="float-left">
+                            {{order.title | uppercase}}
+                        </div>
+                        <div class="float-right">
+                            <button pButton type="button" (click)="showDialog(order.id)" class="ui-button-rounded ui-button-danger"  icon="pi pi-info-circle" label="Show"></button>
+                        </div>
+                    </div>
+                </ng-template>
+            </p-dataView>
+        </div>
+
+    </div>
+
+    <!-- MODAL -->
+    <p-dialog class="text-center" header="{{orderModal.title | uppercase}}" [(visible)]="display" [modal]="true" [responsive]="true" [style]="{width: '350px', minWidth: '200px'}" [minY]="70" 
+            [maximizable]="false" [baseZIndex]="10000">
+        <span>
+            {{orderModal.description}}
+            <hr>
+            {{orderModal.dateInit}} - {{orderModal.dateFinish}}
+        </span>
+            <p-footer>
+                <button (click)="orderChangeComplete()" pButton type="button" [label]="labelButtonModalOrder" class="ui-button-rounded" [ngClass]="typeButton"></button>
+            </p-footer>
+    </p-dialog>
+    
+</div>

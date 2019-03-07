@@ -28,6 +28,9 @@ import { PositionService } from './providers/position.service';
 import {InputTextModule} from 'primeng/inputtext';
 import {CalendarModule} from 'primeng/calendar';
 import {FullCalendarModule} from 'primeng/fullcalendar';
+import {DataViewModule} from 'primeng/dataview';
+import {ButtonModule} from 'primeng/button';
+import {DialogModule} from 'primeng/dialog';
 
 
 @NgModule({
@@ -37,7 +40,7 @@ import {FullCalendarModule} from 'primeng/fullcalendar';
     WorkerComponent,
     ManagerComponent,
     BossComponent,
-    NavbarComponent
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,7 +51,10 @@ import {FullCalendarModule} from 'primeng/fullcalendar';
     RouterModule,
     InputTextModule,
     CalendarModule,
-    FullCalendarModule
+    FullCalendarModule,
+    DataViewModule,
+    ButtonModule,
+    DialogModule
   ],
   providers: [
     CompanyService,
