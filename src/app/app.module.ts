@@ -31,6 +31,7 @@ import {FullCalendarModule} from 'primeng/fullcalendar';
 import {DataViewModule} from 'primeng/dataview';
 import {ButtonModule} from 'primeng/button';
 import {DialogModule} from 'primeng/dialog';
+import {ChartModule} from 'primeng/chart';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import {DialogModule} from 'primeng/dialog';
     FullCalendarModule,
     DataViewModule,
     ButtonModule,
-    DialogModule
+    DialogModule,
+    ChartModule
   ],
   providers: [
     CompanyService,

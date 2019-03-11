@@ -3,12 +3,13 @@
 <div class="container-fluid mt-5">
 
     <div class="row">
-
+        <!-- FULL CALENDAR -->
         <div class="col-sm col-8">
             <h1>Calendario</h1>
             <p-fullCalendar [events]="events" [options]="options"></p-fullCalendar>
         </div>
 
+        <!-- TABLA -->
         <div class="col-sm col-4">
             <h1>Lista de ordenes</h1>
             <p-dataView [value]="orders">
@@ -26,14 +27,22 @@
         </div>
 
     </div>
+    <!-- ESTADISTICA -->
+    <div class="row">
+        <div class="col-sm col-12 text-center mt-3">
+            <h1>Estadistica</h1>
+            <p-chart type="pie" [data]="data"></p-chart>
+            <!-- <p-chart type="bar" [data]="data"></p-chart> -->
+        </div>
+    </div>
 
     <!-- MODAL -->
-    <p-dialog class="text-center" header="{{orderModal.title | uppercase}}" [(visible)]="display" [modal]="true" [responsive]="true" [style]="{width: '350px', minWidth: '200px'}" [minY]="70" 
+    <p-dialog class="text-center" header="{{orderModal.title | uppercase}}" [(visible)]="display" [modal]="true" [responsive]="true" [style]="{width: '40%', minWidth: '25%'}" [minY]="70" 
             [maximizable]="false" [baseZIndex]="10000">
         <span>
             {{orderModal.description}}
             <hr>
-            {{orderModal.dateInit}} - {{orderModal.dateFinish}}
+            <p-fullCalendar [events]="eventsModal" [options]="optionsModal"></p-fullCalendar>
         </span>
             <p-footer>
                 <button (click)="orderChangeComplete()" pButton type="button" [label]="labelButtonModalOrder" class="ui-button-rounded" [ngClass]="typeButton"></button>

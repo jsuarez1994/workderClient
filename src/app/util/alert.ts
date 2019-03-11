@@ -38,6 +38,20 @@ export class Alert{
         title: Constants.MSG_ERROR_USER_INACTIVATED,
         showConfirmButton: true
     })
+
 }
+    /**
+     * MSG: Alert when change property Complete of Order
+     */
+    static msgPropertyCompleteChange(title:string){
+        Swal.fire({
+            position: 'top-end',
+            type: 'success',
+            title: Constants.ALERT_ORDER_INIT + title + Constants.ALERT_ORDER_FINISH,
+            showConfirmButton: false,
+            timer: 1500
+        })
+
+    }
 
 }

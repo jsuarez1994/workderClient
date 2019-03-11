@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user';
 import { Constants } from 'src/app/util/constants';
+import { Alert } from 'src/app/util/alert';
 import { Utilities } from 'src/app/util/utilities';
 import { Order } from 'src/app/models/order';
+import { OrderService } from 'src/app/providers/order.service';
 
 @Component({
   selector: 'app-worker',
@@ -30,38 +32,85 @@ export class WorkerComponent implements OnInit {
   labelButtonModalOrder:string
   orderModal:Order;
   typeButton:string;
+  eventsModal:any[];
+  optionsModal:any;
 
-  constructor() {
-    this.user = new User();
+  //GRAPHIC
+  data:any;
+
+  constructor(private orderService:OrderService ) {
+    this.user = JSON.parse(sessionStorage.getItem(Constants.USER_SESSION));
     this.orderModal = new Order();
     this.events = new Array();
   }
   
   
   ngOnInit() {
-    this.user = JSON.parse(sessionStorage.getItem(Constants.USER_SESSION));
     
-    this.events = this.mapperOrderToOC();
     this.options = this.chargeOptionsCalendar();
-    this.orders = this.user.orders;
+    this.optionsModal = this.chargeOptionsModalCalendar();
+    this.orders = this.getOrdersByUser(this.user);
+    this.events = this.mapperOrderToOC(this.user.orders);
+    this.chargeDataGraphic(this.user)
+    // this.data = this.chargeDataGraphic(this.user);
   }
 
   //Mapeamos las ordenes para poder mostrar en Full Calendar
-  mapperOrderToOC(){
+  mapperOrderToOC(listOrder:any){
     
     let orderCalendar:any[] = new Array();
     
     //Obtenemos las ordenes de la sesion.
-    let orders:Order[] = this.user.orders;
+    let orders:Order[] = listOrder;
     //Recorremos el bucle y lo almacenamos en un mapa.
     for(let or of orders){
-      //Agregamos un dia mas a la fecha finish para mostrar bien en el calendario.
-      let dateF = Utilities.addOneDay(or.dateFinish);
-      orderCalendar.push({"title":or.title, "start":or.dateInit, "end":dateF});
+      orderCalendar.push(this.mapperOrder(or));
     }
-
+    
     return orderCalendar;
     
+  }
+
+  //Metodo que carga los datos de las ordenes relacionadas con el usuario
+  //para realizar la grafica
+  chargeDataGraphic(user:User){
+    let contOC:number = 0;
+    let contOI:number = 0;
+
+    let orders:Order[] = this.user.orders;
+
+    for(let order of orders){
+      if(order.complete){
+        contOC++;
+      }else{
+        contOI++;
+      }
+    }
+
+    //Cargamos la grafica
+    this.data = {
+      labels: [Constants.ORDERS_COMPLETE_STRING,Constants.ORDERS_INCOMPLETE_STRING],
+      datasets: [
+          {
+              data: [contOC, contOI],
+              backgroundColor: [
+                  "#007E24",
+                  "#CA002B",
+              ],
+              hoverBackgroundColor: [
+                  "#00320E",
+                  "#32000B"
+              ]
+          }]    
+      };
+
+  }
+  
+  //Mapeamos una orden para devolverla
+  mapperOrder(or:Order){
+    //Agregamos un dia mas a la fecha finish para mostrar bien en el calendario.
+    let dateF = Utilities.addOneDay(or.dateFinish);
+    return {"title":or.title, "start":or.dateInit, "end":dateF};
   }
   
   //Cargamos las opciones del FullCalendar
@@ -74,6 +123,23 @@ export class WorkerComponent implements OnInit {
           left: 'prev,next',
           center: 'title',
           right: 'month,agendaWeek,agendaDay'
+      },
+      weekends: false
+    }
+
+    return options;
+  }
+
+  //Cargamos las opciones del FullCalendar del modal
+  chargeOptionsModalCalendar(){
+    let today = Utilities.getCurrentDate();
+
+    let options = {
+      defaultDate: today,
+      header: {
+          left: 'none',
+          center: 'title',
+          right: 'none'
       },
       weekends: false
     }
@@ -100,9 +166,15 @@ export class WorkerComponent implements OnInit {
           this.labelButtonModalOrder = "Completar orden";
           this.typeButton = "ui-button-success";
         }
+
       }
     }
+    //Agregamos el evento de la orden del modal
+    let orderCalendar:any[] = new Array();
+    orderCalendar.push(this.mapperOrder(this.orderModal));
+    this.eventsModal = orderCalendar;
 
+    //Mostramos modal
     this.display = true;
   }
 
@@ -110,11 +182,28 @@ export class WorkerComponent implements OnInit {
   orderChangeComplete(){
     if(this.orderModal.complete){
       //Llamamos al servicio que cambia el estado a incompleta
-      alert("Cambiamos el estado a reabrir orden");
+      this.orderModal.complete = false;
+      this.orderService.saveOrUpdate(this.orderModal);
     } else {
-      //Llamamos al servicio que cambia el estado a no completada
-      alert("Cambiamos el estado a completar orden");
+      //Llamamos al servicio que cambia el estado a completada
+      this.orderModal.complete = true;
+      this.orderService.saveOrUpdate(this.orderModal);
     }
+
+    //Mostramos mensaje alerta
+    Alert.msgPropertyCompleteChange(this.orderModal.title);
+
+    //Escondemos Modal
+    this.display = false;
+  }
+
+  //Obtenemos las ordenes de un usuario
+  getOrdersByUser(user:User):any{
+    this.orderService.getOrdersByUser(user).subscribe(
+      orders => {
+        this.orders = orders;
+      }
+    );
   }
 
 }

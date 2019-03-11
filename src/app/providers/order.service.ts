@@ -50,6 +50,11 @@ export class OrderService {
     return this._http.post(this.url, user, {headers:this.headers});
   }
 
+  getOrdersByUser(user:User):Observable<any>{
+    this.url = Constants.URL_API + Constants.GET_ALL_ORDERS + Constants.SPLIT_URL + Constants.GET_USER;
+    return this._http.post(this.url,user, {headers:this.headers});
+  }
+
   getOrdersCompleteByCompany(company:Company):Observable<any>{
     this.url = Constants.URL_API + Constants.GET_ALL_ORDERS + Constants.SPLIT_URL + Constants.ORDERS_COMPANY_COMPLETE;
     return this._http.post(this.url, company, {headers:this.headers});

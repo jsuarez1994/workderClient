@@ -64,7 +64,9 @@ export class Constants {
     public static GET_ORDER:string              =   "order";
 
     public static ORDERS_COMPLETE:string         =   "complete";
+    public static ORDERS_COMPLETE_STRING:string  =   "Ordenes completas";
     public static ORDERS_INCOMPLETE:string       =   "incomplete";
+    public static ORDERS_INCOMPLETE_STRING:string=   "Ordenes incompletas";
     public static ORDERS_COMPANY_COMPLETE:string =   "company_complete";
     public static ORDERS_COMPANY_INCOMPLETE:string=  "company_incomplete";
 
@@ -86,6 +88,8 @@ export class Constants {
 
     //SUCCESS
     public static MSG_SUCCESS_TITLE_LOGIN:string    =   "Datos correctos";
+    public static ALERT_ORDER_INIT                  =   "La orden ";
+    public static ALERT_ORDER_FINISH                =   " ha sido modificada";
 
 
 
