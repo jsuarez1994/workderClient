@@ -42,6 +42,7 @@ export class WorkerComponent implements OnInit {
     this.user = JSON.parse(sessionStorage.getItem(Constants.USER_SESSION));
     this.orderModal = new Order();
     this.events = new Array();
+    this.eventsModal = new Array();
   }
   
   
@@ -49,10 +50,10 @@ export class WorkerComponent implements OnInit {
     
     this.options = this.chargeOptionsCalendar();
     this.optionsModal = this.chargeOptionsModalCalendar();
-    this.orders = this.getOrdersByUser(this.user);
+    this.orders = this.user.orders;
     this.events = this.mapperOrderToOC(this.user.orders);
-    this.chargeDataGraphic(this.user)
-    // this.data = this.chargeDataGraphic(this.user);
+    this.chargeDataGraphic();
+
   }
 
   //Mapeamos las ordenes para poder mostrar en Full Calendar
@@ -71,13 +72,20 @@ export class WorkerComponent implements OnInit {
     
   }
 
+  //Mapeamos una orden para devolverla
+  mapperOrder(or:Order){
+    //Agregamos un dia mas a la fecha finish para mostrar bien en el calendario.
+    let dateF = Utilities.addOneDay(or.dateFinish);
+    return {"title":or.title, "start":or.dateInit, "end":dateF};
+  }
+
   //Metodo que carga los datos de las ordenes relacionadas con el usuario
   //para realizar la grafica
-  chargeDataGraphic(user:User){
+  chargeDataGraphic(){
     let contOC:number = 0;
     let contOI:number = 0;
 
-    let orders:Order[] = this.user.orders;
+    let orders:Order[] = this.orders;
 
     for(let order of orders){
       if(order.complete){
@@ -106,12 +114,6 @@ export class WorkerComponent implements OnInit {
 
   }
   
-  //Mapeamos una orden para devolverla
-  mapperOrder(or:Order){
-    //Agregamos un dia mas a la fecha finish para mostrar bien en el calendario.
-    let dateF = Utilities.addOneDay(or.dateFinish);
-    return {"title":or.title, "start":or.dateInit, "end":dateF};
-  }
   
   //Cargamos las opciones del FullCalendar
   chargeOptionsCalendar(){
@@ -161,10 +163,10 @@ export class WorkerComponent implements OnInit {
         //Mostrara o no el boton de completada
         if(order.complete){
           this.labelButtonModalOrder = "Reabrir orden";
-          this.typeButton = "ui-button-danger";
+          this.typeButton = "ui-button-danger ui-button-rounded p-1";
         } else{
           this.labelButtonModalOrder = "Completar orden";
-          this.typeButton = "ui-button-success";
+          this.typeButton = "ui-button-success ui-button-rounded p-1";
         }
 
       }
@@ -183,15 +185,25 @@ export class WorkerComponent implements OnInit {
     if(this.orderModal.complete){
       //Llamamos al servicio que cambia el estado a incompleta
       this.orderModal.complete = false;
-      this.orderService.saveOrUpdate(this.orderModal);
     } else {
       //Llamamos al servicio que cambia el estado a completada
       this.orderModal.complete = true;
-      this.orderService.saveOrUpdate(this.orderModal);
     }
-
-    //Mostramos mensaje alerta
-    Alert.msgPropertyCompleteChange(this.orderModal.title);
+    
+    this.orderService.saveOrUpdate(this.orderModal).subscribe(
+      response => {
+        //Obtenemos las ordenes del usuario
+        this.getOrdersByUser(this.user);
+        //Mostramos mensaje alerta Success
+        Alert.msgPropertyCompleteChange(this.orderModal.title);
+        //Cargamos la grafica
+        this.chargeDataGraphic();
+      },
+      error => {
+        console.log(<any>error);
+        Alert.msgPropertyErrorChange(this.orderModal.title);
+      }
+    );
 
     //Escondemos Modal
     this.display = false;

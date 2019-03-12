@@ -54,4 +54,18 @@ export class Alert{
 
     }
 
+    /**
+     * MSG: Alert when change property Complete of Order
+     */
+    static msgPropertyErrorChange(title:string){
+        Swal.fire({
+            position: 'top-end',
+            type: 'error',
+            title: Constants.ALERT_ORDER_INIT + title + Constants.ALERT_ORDER_FINISH,
+            showConfirmButton: false,
+            timer: 1500
+        })
+
+    }
+
 }

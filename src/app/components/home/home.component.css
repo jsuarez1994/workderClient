@@ -37,3 +37,8 @@
     font-weight: bold;
     color: rgb(182, 0, 0);
 }
+
+input{
+    border: none;
+    border-bottom: 1px solid black;
+}

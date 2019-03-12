@@ -90,6 +90,7 @@ export class Constants {
     public static MSG_SUCCESS_TITLE_LOGIN:string    =   "Datos correctos";
     public static ALERT_ORDER_INIT                  =   "La orden ";
     public static ALERT_ORDER_FINISH                =   " ha sido modificada";
+    public static ALERT_ORDER_ERROR                 =   " ha fallado al ser modificada";
 
 
 

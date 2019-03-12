@@ -3,14 +3,8 @@
 <div class="container-fluid mt-5">
 
     <div class="row">
-        <!-- FULL CALENDAR -->
-        <div class="col-sm col-8">
-            <h1>Calendario</h1>
-            <p-fullCalendar [events]="events" [options]="options"></p-fullCalendar>
-        </div>
-
         <!-- TABLA -->
-        <div class="col-sm col-4">
+        <div class="col-sm-8 col-md-12 col-lg-8">
             <h1>Lista de ordenes</h1>
             <p-dataView [value]="orders">
                 <ng-template let-order pTemplate="listItem">
@@ -19,33 +13,36 @@
                             {{order.title | uppercase}}
                         </div>
                         <div class="float-right">
-                            <button pButton type="button" (click)="showDialog(order.id)" class="ui-button-rounded ui-button-danger"  icon="pi pi-info-circle" label="Show"></button>
+                            <button pButton type="button" (click)="showDialog(order.id)" class="ui-button-rounded ui-button-danger"  icon="pi pi-info-circle" label="Detalle"></button>
                         </div>
                     </div>
                 </ng-template>
             </p-dataView>
+            <div class="mt-5">
+                <h1>Estadistica</h1>
+                <p-chart type="pie" [data]="data"></p-chart>
+            </div>
         </div>
 
-    </div>
-    <!-- ESTADISTICA -->
-    <div class="row">
-        <div class="col-sm col-12 text-center mt-3">
-            <h1>Estadistica</h1>
-            <p-chart type="pie" [data]="data"></p-chart>
-            <!-- <p-chart type="bar" [data]="data"></p-chart> -->
+        <!-- FULL CALENDAR -->
+        <div class="col-sm-4 col-md-12 col-lg-4">
+            <h1>Calendario</h1>
+            <p-fullCalendar [events]="events" [options]="options"></p-fullCalendar>
         </div>
     </div>
 
     <!-- MODAL -->
-    <p-dialog class="text-center" header="{{orderModal.title | uppercase}}" [(visible)]="display" [modal]="true" [responsive]="true" [style]="{width: '40%', minWidth: '25%'}" [minY]="70" 
-            [maximizable]="false" [baseZIndex]="10000">
+    <p-dialog class="text-center"  style="font-size:2em" header="{{orderModal.title | uppercase}}" [(visible)]="display" [modal]="true" [responsive]="true" [style]="{width: '40%', minWidth: '25%'}" [minY]="70" 
+            [maximizable]="true" [baseZIndex]="10000">
         <span>
             {{orderModal.description}}
             <hr>
             <p-fullCalendar [events]="eventsModal" [options]="optionsModal"></p-fullCalendar>
         </span>
             <p-footer>
-                <button (click)="orderChangeComplete()" pButton type="button" [label]="labelButtonModalOrder" class="ui-button-rounded" [ngClass]="typeButton"></button>
+                <div >
+                    <button (click)="orderChangeComplete()" pButton type="button" [label]="labelButtonModalOrder" [ngClass]="typeButton"></button>
+                </div>
             </p-footer>
     </p-dialog>
     
