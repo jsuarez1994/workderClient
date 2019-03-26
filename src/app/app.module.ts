@@ -32,6 +32,7 @@ import {DataViewModule} from 'primeng/dataview';
 import {ButtonModule} from 'primeng/button';
 import {DialogModule} from 'primeng/dialog';
 import {ChartModule} from 'primeng/chart';
+import {TableModule} from 'primeng/table';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import {ChartModule} from 'primeng/chart';
     DataViewModule,
     ButtonModule,
     DialogModule,
-    ChartModule
+    ChartModule,
+    TableModule
   ],
   providers: [
     CompanyService,

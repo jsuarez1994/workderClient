@@ -1,0 +1,17 @@
+@media only screen and (min-width: 1030px) {/*FULL VIEW*/
+    .heigth-picture{
+        width: 18%;
+    }
+}
+
+@media only screen and (max-width: 1030px) {/*MIDDLE VIEW*/
+    .heigth-picture{
+        width: 40%;
+    }
+}
+
+@media only screen and (max-width: 770px) {/*SHORT VIEW*/
+    .heigth-picture{
+        width: 30%;
+    }
+}

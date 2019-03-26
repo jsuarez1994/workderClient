@@ -33,12 +33,12 @@ export class WorkerComponent implements OnInit {
   orderModal:Order;
   typeButton:string;
   eventsModal:any[];
-  optionsModal:any;
+  optionsModal:any; 
 
   //GRAPHIC
   data:any;
 
-  constructor(private orderService:OrderService ) {
+  constructor( private orderService:OrderService ) {
     this.user = JSON.parse(sessionStorage.getItem(Constants.USER_SESSION));
     this.orderModal = new Order();
     this.events = new Array();
