@@ -2,7 +2,8 @@
 <br><br>
 <div class="container-fluid mt-5">
 
-    <div class="row">
+    <!-- Si el usuario tiene ordenes -->
+    <div class="row" *ngIf="orders.length > 0">
         <!-- TABLA -->
         <div class="col-sm-8 col-md-12 col-lg-8">
             <h1>Lista de ordenes</h1>
@@ -29,6 +30,12 @@
             <h1>Calendario</h1>
             <p-fullCalendar [events]="events" [options]="options"></p-fullCalendar>
         </div>
+    </div>
+
+    <!-- Image al no contener ordenes -->
+    <div class="row" *ngIf="orders.length == 0">
+        <img src="../../../assets/images/error.png" class="mx-auto imgError" alt="error">
+        <h1 class="text-center text-danger">El usuario no contiene ordenes asignadas</h1>
     </div>
 
     <!-- MODAL -->
