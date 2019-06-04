@@ -1,23 +1,24 @@
-import Swal from 'sweetalert2';
+import Swal, { SweetAlertType } from 'sweetalert2';
 import { Constants } from '../util/constants';
+import { User } from '../models/user';
 
-export class Alert{
+export class Alert {
 
     /**
-     * MSG: Message Error when login failed
+     * MSG: Message Error cuando login falla
     */
-    static msgErrorLogin(){
+    static msgErrorLogin() {
         Swal.fire({
             position: 'top-end',
             type: 'error',
-            title: Constants.MSG_ERROR_TITLE_LOGIN, 
+            title: Constants.MSG_ERROR_TITLE_LOGIN,
             text: Constants.MSG_ERROR_DESCRIPTION_LOGIN,
             showConfirmButton: true
         })
     }
 
     /**
-     * MSG: Message Success when login success
+     * MSG: Message Success cuando logea con exito
     */
     static msgSuccessLogin() {
         Swal.fire({
@@ -31,19 +32,19 @@ export class Alert{
     /**
      * MSG: Message user inactivated when login success
     */
-   static msgUserInactivated() {
-    Swal.fire({
-        position: 'top-end',
-        type: 'error',
-        title: Constants.MSG_ERROR_USER_INACTIVATED,
-        showConfirmButton: true
-    })
+    static msgUserInactivated() {
+        Swal.fire({
+            position: 'top-end',
+            type: 'error',
+            title: Constants.MSG_ERROR_USER_INACTIVATED,
+            showConfirmButton: true
+        })
 
-}
+    }
     /**
      * MSG: Alert when change property Complete of Order
      */
-    static msgPropertyCompleteChange(title:string){
+    static msgPropertyCompleteChange(title: string) {
         Swal.fire({
             position: 'top-end',
             type: 'success',
@@ -55,9 +56,9 @@ export class Alert{
     }
 
     /**
-     * MSG: Alert when change property Complete of Order
+     * MSG: Alert cuando cambia propiedad Complete de una Orden
      */
-    static msgPropertyErrorChange(title:string){
+    static msgPropertyErrorChange(title: string) {
         Swal.fire({
             position: 'top-end',
             type: 'error',
@@ -65,7 +66,20 @@ export class Alert{
             showConfirmButton: false,
             timer: 1500
         })
+    }
 
+    /**
+     * Mensaje generico
+     * @param   title:  Titulo del modal
+     * @param   text:   Texto que se mostrara en el modal
+     * @param   type:   Tipo de logo que saldra
+    */
+    static msgGeneric(title: string, text: string, type: SweetAlertType) {
+        Swal.fire({
+            type: type,
+            title: title,
+            text: text
+        })
     }
 
 }

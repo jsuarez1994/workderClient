@@ -1,5 +1,5 @@
 <div class="pos-f-t fixed-top">
-  <nav class="navbar navbar-dark bg-dark">
+  <nav class="navbar navbar-danger bg-danger">
       <a class="navbar-brand inline-flex" href="#">
         <img src="../../../assets/images/brand_white.png" width="60" height="60" class="d-inline-block align-top" alt="">
       </a>
@@ -11,13 +11,13 @@
 
 
   <!-- SubMenu -->
-  <div class="collapse bg-dark text-white float-right p-3" id="navbarToggleExternalContent">
+  <div class="collapse bg-danger text-white float-right p-3" id="navbarToggleExternalContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link">{{company.name | uppercase}}</a>
+        <a class="nav-link elementProfile">{{company.name | uppercase}}</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" (click)="toHome()">Salir</a>
+        <a class="nav-link elementProfile" (click)="toHome()">Salir</a>
       </li>
     </ul>
   </div>

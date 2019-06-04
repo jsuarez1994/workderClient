@@ -42,3 +42,27 @@ h1{
       border:none;
       border-bottom: 1px solid orange;
 }
+
+/* Navbar */
+.elementProfile{
+      text-transform: uppercase;
+}
+.elementProfile:hover {
+      cursor: pointer;
+}
+
+
+
+/* ICONOS TABLA */
+.iconsTable{
+      transition: 0.5s;
+      width: 5%;
+      margin: 5%;
+}
+
+.iconsTable:hover{
+      transition: 0.5s;
+      cursor: pointer;
+      width: 7%;
+      margin: 5%;
+}

@@ -45,8 +45,8 @@ export class UserService {
     return this._http.get<User>(this.url + id);
   }
 
-  getUsersByCompany(idCompany:number):Observable<User>{
-    this.url = Constants.URL_API + Constants.GET_ALL_USERS + Constants.SPLIT_URL + Constants.GET_COMPANY + Constants.SPLIT_URL;
+  getUsersActiveByCompany(idCompany:number):Observable<User>{
+    this.url = Constants.URL_API + Constants.GET_ALL_USERS + Constants.SPLIT_URL + Constants.ACTIVE_TRUE + Constants.SPLIT_URL;
     return this._http.get<User>(this.url + idCompany);
   }
 

@@ -1,41 +1,26 @@
 <app-navbar></app-navbar>
 <br><br>
+<br><br>
 
 <div class="container-fluid mt-5">
 
     <div class="row">
         <!-- Usuarios -->
-        <div class="col-sm-12 col-md-12 col-lg-8">
+        <div class="col-sm-12 col-md-12 col-lg-12">
             <h3 class="text-center">Usuarios</h3>
-            <table class="table table-hover">
+            <table class="table table-hover text-center align-middle">
                 <tbody>
-                    <tr *ngFor="let user of listUser">
+                    <tr *ngFor="let user of listUsersActive">
                         <td><img src="{{user.pathPhoto}}" alt="picture" class="img-fluid heigth-picture rounded mx-auto d-block"></td>
-                        <td>{{user.name}} {{user.surname}}</td>
-                        <td>{{user.email}}</td>
-                        <td>{{user.rol.name}}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <!-- Lista de ordenes -->
-        <div class="col-sm-12 col-md-12 col-lg-4">
-            <h3 class="text-center">Ordenes Incompletas</h3>
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>TITULO</th>
-                        <th>DESCRIPCIÓN</th>
-                        <th>FECHA LÍMITE</th>
-                        <th>USUARIO ASIGNADO</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let order of listOrdersIncomplete">
-                        <td>{{order.title}}</td>
-                        <td>{{order.description}}</td>
-                        <td>{{order.dateInit}} - {{order.dateFinish}}</td>
-                        <td>{{order.user.email}}</td>
+                        <td class="align-middle">{{user.name}} {{user.surname}}</td>
+                        <td class="align-middle">{{user.email}}</td>
+                        <td class="align-middle">{{user.rol.name}}</td>
+                        <!-- Operaciones -->
+                        <td>
+                            <img [src]="delete" alt="Eliminar Usuario" class="iconsTable" (click)="showModalDownUser(user)">
+                            <img [src]="edit" alt="Editar Usuario" class="iconsTable"  (click)="showModalUpdateUser(user)">
+                            <img [src]="send" alt="Enviar Email" class="iconsTable"  (click)="showModalSendEmailUser(user)">
+                        </td>
                     </tr>
                 </tbody>
             </table>
