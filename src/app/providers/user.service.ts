@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { User } from '../models/user';
 import { Constants } from '../util/constants';
 import { Order } from '../models/order';
+import { Mail } from '../models/mail';
 
 
 @Injectable({
@@ -52,6 +53,12 @@ export class UserService {
 
   getUserByOrder(order:Order):Observable<User>{
     this.url = Constants.URL_API + Constants.GET_USER + Constants.SPLIT_URL + Constants.GET_ORDER;
-    return this._http.post<User>(this.url + order, {headers:this.headers});
+    return this._http.post<User>(this.url, order, {headers:this.headers});
   }
+
+  sendMail(mail:Mail):Observable<Mail>{
+    this.url = Constants.URL_API + Constants.GET_USER + Constants.SPLIT_URL + Constants.GET_MAIL;
+    return this._http.post<Mail>(this.url, mail, {headers:this.headers});
+  }
+
 }

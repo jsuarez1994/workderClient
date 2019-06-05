@@ -1,0 +1,72 @@
+<app-navbar></app-navbar>
+<br><br>
+<br><br>
+
+<div class="text-center mt-5 box">
+
+
+  <!--SPINNER-->
+  <div class="spinner-grow text-danger" [class]="spinnerShow" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+
+
+  <div class="login mt-5">
+    <h1>Enviar mail</h1>
+    <form #mailForm='ngForm' (ngSubmit)="ngSendEmailUser(mailForm)">
+      <!-- Mail y Pass del Usuario -->
+      <div class="inputs">
+        <div class="ui-inputgroup mt-5">
+          <span class="ui-float-label">
+            <input id="float-input" class="form-control" [(ngModel)]="mail.fromEmail" disabled="true" type="mail"
+              name="mail" size="25" pInputText required>
+            <label for="float-input">Mail</label>
+          </span>
+
+          <span class="ui-float-label">
+            <input id="float-input" class="form-control" [(ngModel)]="mail.password" type="password" name="password"
+              size="25" pInputText required>
+            <label for="float-input">Password de email</label>
+          </span>
+        </div>
+      </div>
+
+      <!-- Mail del usuario que va a enviar -->
+      <div class="inputs">
+        <div class="ui-inputgroup mt-5">
+          <span class="ui-float-label">
+            <input id="float-input" class="form-control" [(ngModel)]="mail.toEmail" disabled="true" type="mail"
+              name="mailTo" size="25" pInputText required>
+            <label for="float-input">Mail para:</label>
+          </span>
+        </div>
+      </div>
+
+      <!-- Title -->
+      <div class="inputs">
+        <div class="ui-inputgroup mt-5">
+          <span class="ui-float-label">
+            <input id="float-input" class="form-control" [(ngModel)]="mail.title" type="text" name="title" size="25"
+              pInputText required>
+            <label for="float-input">Titulo</label>
+          </span>
+        </div>
+      </div>
+
+      <!-- Mensaje -->
+      <div class="inputs">
+        <div class="ui-inputgroup mt-5">
+          <span class="ui-float-label">
+            <textarea id="float-input" class="form-control" [(ngModel)]="mail.text" type="mail" name="text" size="25" pInputText
+              required ></textarea>
+            <label for="float-input">Texto</label>
+          </span>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-success mt-4 mr-5" [disabled]="!mailForm.form.valid">Enviar Mail</button>
+      <button type="button" class="btn btn-danger mt-4 ml-5" (click)="ngBackView()">Cancelar</button>
+    </form>
+  </div>
+
+</div>

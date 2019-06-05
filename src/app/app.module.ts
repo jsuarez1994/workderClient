@@ -33,6 +33,7 @@ import {ButtonModule} from 'primeng/button';
 import {DialogModule} from 'primeng/dialog';
 import {ChartModule} from 'primeng/chart';
 import {TableModule} from 'primeng/table';
+import { EmailComponent } from './components/email/email.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import {TableModule} from 'primeng/table';
     ManagerComponent,
     BossComponent,
     NavbarComponent,
+    EmailComponent,
   ],
   imports: [
     BrowserModule,

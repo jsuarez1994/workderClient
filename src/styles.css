@@ -51,7 +51,29 @@ h1{
       cursor: pointer;
 }
 
+@media only screen and (min-width: 1030px) {/*FULL VIEW*/
+      .heigth-picture{
+          width: 18%;
+      }
 
+  }
+  
+  @media only screen and (max-width: 1030px) {/*MIDDLE VIEW*/
+      .heigth-picture{
+          width: 40%;
+      }
+
+  }
+  
+  @media only screen and (max-width: 770px) {/*SHORT VIEW*/
+      .heigth-picture{
+          width: 30%;
+      }
+  }
+
+.hidden-element{
+      display: none;
+}
 
 /* ICONOS TABLA */
 .iconsTable{
@@ -59,6 +81,7 @@ h1{
       width: 5%;
       margin: 5%;
 }
+
 
 .iconsTable:hover{
       transition: 0.5s;

@@ -17,9 +17,9 @@ export class RolService {
 
   /*-----------METHODS-----------*/
 
-  getRols():Observable<any>{
+  getRols():Observable<Rol>{
     this.url = Constants.URL_API + Constants.GET_ALL_ROLS;
-    return this._http.get(this.url);
+    return this._http.get<Rol>(this.url);
   }
 
   getRol(id:number):Observable<any>{

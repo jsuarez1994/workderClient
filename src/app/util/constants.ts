@@ -2,11 +2,13 @@ import { SweetAlertType } from 'sweetalert2';
 
 export class Constants {
 
-    /* -------------------- URL --------------------*/
+    /* -------------------- URL - COMPONENT --------------------*/
     public static URL_API:string              =     "http://localhost:8080/workder_api/";
+    public static URL_ADMIN_INDEX:string      =     "admin";
     public static URL_WORKER_INDEX:string     =     "worker";
     public static URL_MANAGER_INDEX:string    =     "manager";
     public static URL_BOSS_INDEX:string       =     "boss";
+    public static URL_SEND_EMAIL:string       =     "email";
 
 
 
@@ -22,6 +24,7 @@ export class Constants {
     public static IMAGE_DELETE  =   "../../assets/images/delete.png";
     public static IMAGE_EDIT  =   "../../assets/images/edit.png";
     public static IMAGE_SEND  =   "../../assets/images/send.png";
+
     /* -------------------- MODELS -------------------- */
 
     //-----------------ROL-----------------
@@ -86,6 +89,14 @@ export class Constants {
     public static GET_ALL_COMPANYS:string       =   "companys";
     public static GET_COMPANY:string            =   "company";
 
+    //-----------------MAIL-----------------
+
+    //ATRIBUTES
+    
+    //SERVICES
+    public static GET_ALL_MAILS:string             =   "mails";
+    public static GET_MAIL:string                  =   "mail";
+
     /* -------------------- MSG - MODAL -------------------- */
 
     //GENERIC
@@ -102,6 +113,7 @@ export class Constants {
     public static MSG_ERROR_USER_INACTIVATED            =   "Usuario desactivado, habla con su responsable para volver a activarlo";
     public static ALERT_EMAIL:string                    =   "Introduce en el formato correcto el email";
     public static ALERT_PASSWORD:string                 =   "Introduzca bien el formato de la password";
+    public static MSG_TITLE_ERROR:string                =   "Operación fallida";
 
     //SUCCESS
     public static MSG_SUCCESS_TITLE_LOGIN:string    =   "Datos correctos";
@@ -111,11 +123,17 @@ export class Constants {
     public static MSG_TITLE_SUCCESS:string          =   "Operación realizada con éxito";
 
     //MODAL DOWN USER
-    public static TITLE_MODAL_DOWN_USER:string      =   "¿Seguro que quieres dar de baja al usuario?";
-    public static TEXT_MODAL_DOWN_USER:string       =   "No se mostrará ni podrá logearse ";
-    public static TEXT_CONFIRM_BUTTON:string        =   "Dar de baja";
-    public static MSG_TEXT_DOWN_USER_SUCCESS:string =   " ha sido dado de baja";
+    public static TITLE_MODAL_DOWN_USER:string          =   "¿Seguro que quieres dar de baja al usuario?";
+    public static TEXT_MODAL_DOWN_USER:string           =   "No se mostrará ni podrá logearse ";
+    public static TEXT_CONFIRM_DOWN_USER_BUTTON:string  =   "Dar de baja";
+    public static MSG_TEXT_DOWN_USER_SUCCESS:string     =   " ha sido dado de baja";
 
+    //MODAL SEND EMAIL
+    public static TITLE_MODAL_SEND_EMAIL:string                 =   "Enviar Mail";
+    public static TEXT_CONFIRM_SEND_EMAIL_BUTTON:string         =   "Enviar mail";
+    public static MSG_TEXT_SEND_MAIL_SUCCESS:string             =   "Se ha enviado el mail a ";
+    public static MSG_TEXT_SEND_MAIL_ERROR:string               =   "No se ha enviado el mail";
+    public static MSG_TEXT_SEND_MAIL_VALIDATION_ERROR:string    =   "Mail mal formado. Revísalo";
 
 
     /* -------------------- EXPRESSION REGULAR -------------------- */

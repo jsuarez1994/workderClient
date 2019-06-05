@@ -86,6 +86,14 @@ export class Utilities{
             return out;
       }
 
-      
+      //Esconder Spinner
+      static stopSpinner():string {
+            return "hidden-element";
+      }
+
+      //Mostrar Spinner
+      static showSpinner():string{
+            return Constants.STRING_EMPTY;
+      }
 
 }

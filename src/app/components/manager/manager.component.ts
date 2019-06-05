@@ -6,6 +6,9 @@ import { OrderService } from 'src/app/providers/order.service';
 import { Order } from 'src/app/models/order';
 import { Alert } from '../../util/alert';
 import Swal from 'sweetalert2';
+import { Mail } from 'src/app/models/mail';
+import { Utilities } from 'src/app/util/utilities';
+import { Router, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-manager',
@@ -16,6 +19,12 @@ export class ManagerComponent implements OnInit {
 
   //Usuario de la session
   user: User;
+
+  //Objeto email para enviar
+  email: Mail;
+
+  //Flag Spinner
+  spinnerShow: string;
 
   //Lista de usuarios de la empresa
   listUsersActive: any;
@@ -32,7 +41,8 @@ export class ManagerComponent implements OnInit {
   send: string;
 
   constructor(private orderService: OrderService,
-    private userService: UserService) {
+    private userService: UserService,
+    private router: Router) {
     this.user = JSON.parse(sessionStorage.getItem(Constants.USER_SESSION));
   }
 
@@ -61,6 +71,11 @@ export class ManagerComponent implements OnInit {
    * Cargamos configuracion de la vista
   */
   getConfig() {
+
+    //Spinner
+    this.spinnerShow = Utilities.stopSpinner();
+
+    //Cargamos imagenes de botones
     this.edit = Constants.IMAGE_EDIT;
     this.delete = Constants.IMAGE_DELETE;
     this.send = Constants.IMAGE_SEND;
@@ -78,16 +93,22 @@ export class ManagerComponent implements OnInit {
       type: Constants.MODAL_TYPE_INFO,
       showCancelButton: true,
       confirmButtonColor: Constants.COLOR_RED_BUTTON,
-      confirmButtonText: Constants.TEXT_CONFIRM_BUTTON,
+      confirmButtonText: Constants.TEXT_CONFIRM_DOWN_USER_BUTTON,
       cancelButtonColor: Constants.COLOR_GREEN_BUTTON,
       cancelButtonText: Constants.MODAL_BUTTON_CANCEL,
     }).then((result) => {
+      //Mostramos Spinner
+      this.spinnerShow = Utilities.showSpinner();
+
       //Si clicamos en "Dar de baja"
       if (result.value) {
         //Cambiamos la propiedad a false
         user.activated = false;
         this.ngDownUser(user);
       }
+
+      //Escondemos Spinner
+      this.spinnerShow = Utilities.stopSpinner();
     })
   }
 
@@ -114,7 +135,6 @@ export class ManagerComponent implements OnInit {
    * @param   user
   */
   showModalUpdateUser(user: User) {
-
   }
 
   /**
@@ -134,14 +154,14 @@ export class ManagerComponent implements OnInit {
   */
   showModalSendEmailUser(user: User) {
 
-  }
-
-  /**
-   * Envia email al usuario
-   * @param   user
-  */
-  ngSendEmailUser(user: User) {
-
+    //Parametros para el componente
+    let params: NavigationExtras = {
+      queryParams: {
+        "fromEmail": this.user.email,
+        "toEmails": user.email
+      }
+    };
+    this.router.navigate([Constants.URL_SEND_EMAIL], params);
   }
 
 }
