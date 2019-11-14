@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/providers/user.service';
-import {InputTextModule} from 'primeng/inputtext';
+import { InputTextModule } from 'primeng/inputtext';
 import { Alert } from '../../util/alert';
 import { Constants } from 'src/app/util/constants';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
+import { SharedService } from 'src/app/providers/shared.service';
 
 @Component({
   selector: 'app-home',
@@ -13,21 +15,23 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  user:User =  new User();
-  alertEmail:string;
-  alertPassword:string;
+  user: User = new User();
+  alertEmail: string;
+  alertPassword: string;
 
-  constructor( private userService:UserService, private router:Router ) { 
+  constructor(private userService: UserService, private router: Router, private translate: TranslateService,
+    private sharedService:SharedService) {
+    this.translate.setDefaultLang(Constants.LANGUAJE_ES);
   }
 
   ngOnInit() {
     sessionStorage.clear();
   }
 
-  ngLogin(){
+  ngLogin() {
 
-    if(     (this.user.email == null || this.user.email == undefined) 
-        ||  (this.user.password == null || this.user.password == undefined)){
+    if ((this.user.email == null || this.user.email == undefined)
+      || (this.user.password == null || this.user.password == undefined)) {
 
       Alert.msgErrorLogin();
 
@@ -35,18 +39,18 @@ export class HomeComponent implements OnInit {
 
       this.userService.login(this.user).subscribe(
         user => {
-          if(user != null){//IR RETURN DATA
+          if (user != null) {//IR RETURN DATA
 
             this.user = user;
             console.log(this.user);
 
-            if(this.user.activated == true){ //IF USER ACTIVATED
-              let userJson:string = JSON.stringify(this.user);
+            if (this.user.activated == true) { //IF USER ACTIVATED
+              let userJson: string = JSON.stringify(this.user);
               sessionStorage.setItem(Constants.USER_SESSION, userJson);
-              Alert.msgSuccessLogin();              
-              if(this.user.rol.id == Constants.ID_ROL_USER_BOSS){//REDIRECT TO BOSS INDEX
+              Alert.msgSuccessLogin();
+              if (this.user.rol.id == Constants.ID_ROL_USER_BOSS) {//REDIRECT TO BOSS INDEX
                 this.router.navigate([Constants.URL_BOSS_INDEX])
-              } else if ( this.user.rol.id == Constants.ID_ROL_USER_MANAGER ) {//REDIRECT TO MANAGER INDEX
+              } else if (this.user.rol.id == Constants.ID_ROL_USER_MANAGER) {//REDIRECT TO MANAGER INDEX
                 this.router.navigate([Constants.URL_MANAGER_INDEX]);
               } else if (this.user.rol.id == Constants.ID_ROL_USER_WORKER) {//REDIRECT TO WORKER INDEX
                 this.router.navigate([Constants.URL_WORKER_INDEX])
@@ -63,28 +67,27 @@ export class HomeComponent implements OnInit {
         }
       );
     }
-    
+
   }
 
-  ngClear(){
+  ngClear() {
     this.user.email = Constants.STRING_EMPTY;
     this.user.password = Constants.STRING_EMPTY;
   }
 
-  validEmail(){
-    if(!Constants.EXP_EMAIL.test(this.user.email)){
+  validEmail() {
+    if (!Constants.EXP_EMAIL.test(this.user.email)) {
       this.alertEmail = Constants.ALERT_EMAIL;
     } else {
       this.alertEmail = Constants.STRING_EMPTY;
     }
   }
 
-  validPassword(){
-    if(!Constants.EXP_PASSWORD.test(this.user.password)){
+  validPassword() {
+    if (!Constants.EXP_PASSWORD.test(this.user.password)) {
       this.alertPassword = Constants.ALERT_PASSWORD;
     } else {
       this.alertPassword = Constants.STRING_EMPTY;
     }
   }
-
 }

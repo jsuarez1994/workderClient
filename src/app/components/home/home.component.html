@@ -4,7 +4,7 @@
     </div>
 
     <div class="login mt-5">
-        <h1>Login</h1>
+        <h1>{{ 'HOME.LOGIN' | translate }}</h1>
         <form #userLogin='ngForm' (ngSubmit)="ngLogin(userLogin)">
             <div class="inputs">
                 <div class="ui-inputgroup mt-5">
@@ -12,7 +12,7 @@
                         <input  id="float-input" class="form-control" [(ngModel)]="user.email" 
                                 type="email" name="email" size="25" pInputText (change)="validEmail()"
                                 required> 
-                        <label for="float-input">Email</label>
+                        <label for="float-input">{{ 'HOME.MAIL' | translate }}</label>
                         <small id="emailHelp" class="alertMsg">{{alertEmail}}</small>
                     </span>
                 </div>
@@ -21,14 +21,14 @@
                         <input  id="float-input" class="form-control" [(ngModel)]="user.password" 
                                 type="password" name="password" size="25" pInputText (change)="validPassword()"
                                 required> 
-                        <label for="float-input">Password</label>
+                        <label for="float-input">{{ 'HOME.PASSWORD' | translate }}</label>
                         <small id="emailHelp" class="alertMsg">{{alertPassword}}</small>
                     </span>
                 </div>
             </div>
 
-            <button type="submit" class="btn btn-success mt-4 mr-5" [disabled]="!userLogin.form.valid">Login</button>
-            <button type="button" class="btn btn-danger mt-4 ml-5" (click)="ngClear()">Limpiar</button>
+            <button type="submit" class="btn btn-success mt-4 mr-5" [disabled]="!userLogin.form.valid">{{ 'HOME.LOGIN' | translate }}</button>
+            <button type="button" class="btn btn-danger mt-4 ml-5" (click)="ngClear()">{{ 'BUTTONS.CLEAN' | translate }}</button>
         </form>
     </div>
 

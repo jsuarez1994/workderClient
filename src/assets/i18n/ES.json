@@ -1,0 +1,11 @@
+{
+    "BUTTONS": {
+        "CLEAN": "Limpiar"
+    },
+    "HOME": {
+        "LOGIN":"Login",
+        "MAIL": "Email",
+        "PASSWORD": "Contraseña"
+    }
+    
+}
